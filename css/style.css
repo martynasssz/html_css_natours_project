@@ -6,3 +6,47 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* -- star is universal selector select each and every element on the page all applay the declarations */
+/* -- box sizing is to change the box model, so thant the borders and the paddings are no longer added 
+to total width or total height than we specify for a box*/
+
+* {   
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*-- fort-family is parient element in body and all other child elements inherit it*/
+/*-- padding: 30px -- white space arout the page */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777; 
+    padding: 30px; 
+}
+
+/*-- 95vh -- means, that every point the height of the box of his element should be 95% of the viewport height.
+If we put 100vh, element would be exactly the same height as the viewport (white space will in the end of page).*/
+/*-- background-size: cover -- means, that whateverthe width of the viewport, or the element,it'll always try to fit 
+the element inside pf the box.*/
+/*--background-position: top-- backgroud image top stays the same , when you changing page size, the same 
+we can with bottom* and center*/
+/* --linear-gradient(to right bottom,  -- gradient goes to from left to the right buttom conner*/
+/* -- clip-path:polygon(  -- we spacify a polygon in wihch the image, o element, will still be wisible; 
+x,y starts from top left conner and finishes at the bottom left conner. For every conner we should specify 
+codinates.  75vh (75% viewport hight). If we change viewport hight it will change dinamically */
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(126, 213, 111, 0.8),
+        rgba(40, 180, 131, 0.8)),
+        url("../img/hero.jpg.");
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
