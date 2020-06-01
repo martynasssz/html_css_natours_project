@@ -38,6 +38,7 @@ we can with bottom* and center*/
 /* -- clip-path:polygon(  -- we spacify a polygon in wihch the image, o element, will still be wisible; 
 x,y starts from top left conner and finishes at the bottom left conner. For every conner we should specify 
 codinates.  75vh (75% viewport hight). If we change viewport hight it will change dinamically */
+/* --position: relative  it is reference from which .logo-box, top and left will count */
 
 .header {
     height: 95vh;
@@ -48,5 +49,48 @@ codinates.  75vh (75% viewport hight). If we change viewport hight it will chang
         url("../img/hero.jpg.");
     background-size: cover;
     background-position: top;
+    position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+/*--width will automatically figured out by a browser */
+.logo {
+    height: 35px;  
+}
+
+/*-- sent text-boxt in a center use position: absolute; --*/
+/*-- top and left 50% it's from top to  the text-box starts, the same with left size it is not exectlly in center--*/
+/*--top 40% -- because we need text-box a little bit heigher*/
+/*-- transform: translate(-50%, -50%) helps to finish text-box centering --*/
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;    
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/*--display:block breaks create lines breaks after and before */
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
 }
