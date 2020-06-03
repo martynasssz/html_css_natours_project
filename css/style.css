@@ -64,6 +64,12 @@ codinates.  75vh (75% viewport hight). If we change viewport hight it will chang
     height: 35px;  
 }
 
+/*
+.logo:hover {
+    animation: moveInRight 1s ease-out; it will happens as soon it logo will be hover
+}
+*/
+
 /*-- sent text-boxt in a center use position: absolute; --*/
 /*-- top and left 50% it's from top to  the text-box starts, the same with left size it is not exectlly in center--*/
 /*--top 40% -- because we need text-box a little bit heigher*/
@@ -75,17 +81,31 @@ codinates.  75vh (75% viewport hight). If we change viewport hight it will chang
     transform: translate(-50%, -50%);
 }
 
+/*--backface-visibility: hidden;-- use for fixing text (entire element .heading-primary moves when animation 
+property is using*/ 
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    backface-visibility: hidden; 
 }
 
 /*--display:block breaks create lines breaks after and before */
+/*--animation-timing-function:-- define how animation will proceed;*//*ease-in - star quickly and slover at th end, 
+ease-out - starts slow, faster at the end*/
+
 .heading-primary-main {
     display: block;
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+    
+    animation-name: moveInLeft;  /*name of animation*/
+    animation-duration: 1s;  /*time the animation should take*/
+    animation-timing-function: ease-out;
+    
+    /*animation-iteration-count: 3;*/ /*animation happens 3 time*/
+    /*animation-delay: 3s;*/ /*before animation starts to play will first wait 3 seconds */
 }
 
 .heading-primary-sub {
@@ -93,4 +113,41 @@ codinates.  75vh (75% viewport hight). If we change viewport hight it will chang
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+    animation: moveInRight 1s ease-out; /*all properties write in one line*/
+
+}
+
+/*--specify every time of animation 0% - the animation actually starts (initial staty), 
+100% - when animation finish (final state) */ 
+/* -- transform: rotate(120deg); -- when we want rotate object */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0; /*animation invisible*/
+        transform: translateX(-100px); /*start -100px at the left*/
+    }
+    
+    80% {
+        transform: translateX(10px); /*animation goes 10px to right side*/
+    }
+
+    100% {
+        opacity: 1; /*animation fully visible */
+        transform: translate(0); /* how it looks now */
+    }    
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0; /*animation invisible*/
+        transform: translateX(100px); /*start 100px at the right*/
+    }    
+    
+    80% {
+        transform: translateX(-10px); /*animation goes 10px to left side*/
+    }
+
+    100% {
+        opacity: 1; /*animation fully visible */
+        transform: translate(0); /* how it looks now */
+    }    
 }
