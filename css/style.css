@@ -8,24 +8,34 @@ Dark green: #28b485
 */
 
 /* -- star is universal selector select each and every element on the page all applay the declarations */
-/* -- box sizing is to change the box model, so thant the borders and the paddings are no longer added 
-to total width or total height than we specify for a box*/
-
-* {   
+/* --boxsize by it self not inherit, bet setting box-sizing for every element on entire page to inherit, 
+it automatically inherit whatever we put of border-box;*/
+*,
+*::after,
+*::before {   
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
+}
+
+/*the root font sizeset in html*/
+html {
+    font-size: 62.5%; /*1rem = 10px root font size, 10/16 = 62.5%;  16px default size*/
 }
 
 /*-- fort-family is parient element in body and all other child elements inherit it*/
 /*-- padding: 30px -- white space arout the page */
+/* -- box sizing is to change the box model, so thant the borders and the paddings are no longer added 
+to total width or total height than we specify for a box*/
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; remove, because set html font size*/
     line-height: 1.7;
     color: #777; 
-    padding: 30px; 
+    padding: 3rem; 
+
+    box-sizing: border-box;
 }
 
 /*-- 95vh -- means, that every point the height of the box of his element should be 95% of the viewport height.
@@ -55,13 +65,13 @@ codinates.  75vh (75% viewport hight). If we change viewport hight it will chang
 
 .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 /*--width will automatically figured out by a browser */
 .logo {
-    height: 35px;  
+    height: 3.5rem;  
 }
 
 /*
@@ -89,7 +99,7 @@ property is using*/
     text-transform: uppercase;
 
     backface-visibility: hidden; 
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 /*--display:block breaks create lines breaks after and before */
@@ -98,9 +108,9 @@ ease-out - starts slow, faster at the end*/
 
 .heading-primary-main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     
     animation-name: moveInLeft;  /*name of animation*/
     animation-duration: 1s;  /*time the animation should take*/
@@ -112,9 +122,9 @@ ease-out - starts slow, faster at the end*/
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out; /*all properties write in one line*/
 
 }
@@ -125,11 +135,11 @@ ease-out - starts slow, faster at the end*/
 @keyframes moveInLeft {
     0% {
         opacity: 0; /*animation invisible*/
-        transform: translateX(-100px); /*start -100px at the left*/
+        transform: translateX(-10rem); /*start -100px at the left*/
     }
     
     80% {
-        transform: translateX(10px); /*animation goes 10px to right side*/
+        transform: translateX(1rem); /*animation goes 10px to right side*/
     }
 
     100% {
@@ -141,11 +151,11 @@ ease-out - starts slow, faster at the end*/
 @keyframes moveInRight {
     0% {
         opacity: 0; /*animation invisible*/
-        transform: translateX(100px); /*start 100px at the right*/
+        transform: translateX(10rem); /*start 100px at the right*/
     }    
     
     80% {
-        transform: translateX(-10px); /*animation goes 10px to left side*/
+        transform: translateX(-1rem); /*animation goes 10px to left side*/
     }
 
     100% {
@@ -157,7 +167,7 @@ ease-out - starts slow, faster at the end*/
 @keyframes moveInBottom {
     0% {
         opacity: 0; /*animation invisible*/
-        transform: translateY(30px); 
+        transform: translateY(3rem); 
     }      
     
     100% {
@@ -174,12 +184,13 @@ ease-out - starts slow, faster at the end*/
 .btn:link,
 .btn:visited {
     text-transform: uppercase;
-    text-decoration:none; 
-    padding: 15px 40px;   
+    text-decoration: none; 
+    padding: 1.5rem 4rem;   
     display: inline-block; /*if we want get some blocks around*/
-    border-radius: 100px;
+    border-radius: 10rem;
     transform: all .2s;
     position: relative;
+    font-size: 1.6rem;
 }
 
 /*--box-shadow-- property, we can specify a lot of values. If we don't want't shaow in x direction we put 0.
@@ -187,12 +198,12 @@ ease-out - starts slow, faster at the end*/
 
 .btn:hover {
     transform: translateY(-3px); /*when hove moves up 3px from the button*/
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
 
 .btn:active {
     transform: translateY(-1px); /*when click moves up 1px from button*/
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
 .btn-white {
@@ -213,7 +224,7 @@ it is definitely behind the button*/
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position:absolute;
     top: 0;
     left: 0;
