@@ -1,30 +1,43 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark:#777;
+$color-white: #fff;
+
+
+
+
 /* -- star is universal selector select each and every element on the page all applay the declarations */
 /* --boxsize by it self not inherit, bet setting box-sizing for every element on entire page to inherit, 
 it automatically inherit whatever we put of border-box;*/
 *,
 *::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
+*::before {   
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
 
 /*the root font sizeset in html*/
 html {
-  font-size: 62.5%;
-  /*1rem = 10px root font size, 10/16 = 62.5%;  16px default size*/ }
+    font-size: 62.5%; /*1rem = 10px root font size, 10/16 = 62.5%;  16px default size*/
+}
 
 /*-- fort-family is parient element in body and all other child elements inherit it*/
 /*-- padding: 30px -- white space arout the page */
 /* -- box sizing is to change the box model, so thant the borders and the paddings are no longer added 
 to total width or total height than we specify for a box*/
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; remove, because set html font size*/
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; remove, because set html font size*/
+    line-height: 1.7;
+    color: $color-grey-dark; 
+    padding: 3rem; 
+
+    box-sizing: border-box;
+}
 
 /*-- 95vh -- means, that every point the height of the box of his element should be 95% of the viewport height.
 If we put 100vh, element would be exactly the same height as the viewport (white space will in the end of page).*/
@@ -37,118 +50,133 @@ we can with bottom* and center*/
 x,y starts from top left conner and finishes at the bottom left conner. For every conner we should specify 
 codinates.  75vh (75% viewport hight). If we change viewport hight it will change dinamically */
 /* --position: relative  it is reference from which .logo-box, top and left will count */
+
 .header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg.");
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)),
+        url("../img/hero.jpg.");
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
 
 .header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
 
 /*--width will automatically figured out by a browser */
 .header__logo {
-  height: 3.5rem; }
+    height: 3.5rem;  
+}
 
 /*
 .logo:hover {
     animation: moveInRight 1s ease-out; it will happens as soon it logo will be hover
 }
 */
+
 /*-- sent text-boxt in a center use position: absolute; --*/
 /*-- top and left 50% it's from top to  the text-box starts, the same with left size it is not exectlly in center--*/
 /*--top 40% -- because we need text-box a little bit heigher*/
 /*-- transform: translate(-50%, -50%) helps to finish text-box centering --*/
 .header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  /*center text inside the box*/ }
+    position: absolute;
+    top: 40%;
+    left: 50%;    
+    transform: translate(-50%, -50%);
+    text-align: center; /*center text inside the box*/
+}
 
 /*--backface-visibility: hidden;-- use for fixing text (entire element .heading-primary moves when animation 
-property is using*/
+property is using*/ 
 .heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  margin-bottom: 6rem; }
+    color:$color-white;
+    text-transform: uppercase;
+
+    backface-visibility: hidden; 
+    margin-bottom: 6rem;
+}
 
 /*--display:block breaks create lines breaks after and before */
-/*--animation-timing-function:-- define how animation will proceed;*/
-/*ease-in - star quickly and slover at th end, 
+/*--animation-timing-function:-- define how animation will proceed;*//*ease-in - star quickly and slover at th end, 
 ease-out - starts slow, faster at the end*/
+
 .heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  /*name of animation*/
-  animation-duration: 1s;
-  /*time the animation should take*/
-  animation-timing-function: ease-out;
-  /*animation-iteration-count: 3;*/
-  /*animation happens 3 time*/
-  /*animation-delay: 3s;*/
-  /*before animation starts to play will first wait 3 seconds */ }
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    
+    animation-name: moveInLeft;  /*name of animation*/
+    animation-duration: 1s;  /*time the animation should take*/
+    animation-timing-function: ease-out;
+    
+    /*animation-iteration-count: 3;*/ /*animation happens 3 time*/
+    /*animation-delay: 3s;*/ /*before animation starts to play will first wait 3 seconds */
+}
 
 .heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out;
-  /*all properties write in one line*/ }
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; /*all properties write in one line*/
+
+}
 
 /*--specify every time of animation 0% - the animation actually starts (initial staty), 
-100% - when animation finish (final state) */
+100% - when animation finish (final state) */ 
 /* -- transform: rotate(120deg); -- when we want rotate object */
 @keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    /*animation invisible*/
-    transform: translateX(-10rem);
-    /*start -100px at the left*/ }
-  80% {
-    transform: translateX(1rem);
-    /*animation goes 10px to right side*/ }
-  100% {
-    opacity: 1;
-    /*animation fully visible */
-    transform: translate(0);
-    /* how it looks now */ } }
+    0% {
+        opacity: 0; /*animation invisible*/
+        transform: translateX(-10rem); /*start -100px at the left*/
+    }
+    
+    80% {
+        transform: translateX(1rem); /*animation goes 10px to right side*/
+    }
+
+    100% {
+        opacity: 1; /*animation fully visible */
+        transform: translate(0); /* how it looks now */
+    }    
+}
 
 @keyframes moveInRight {
-  0% {
-    opacity: 0;
-    /*animation invisible*/
-    transform: translateX(10rem);
-    /*start 100px at the right*/ }
-  80% {
-    transform: translateX(-1rem);
-    /*animation goes 10px to left side*/ }
-  100% {
-    opacity: 1;
-    /*animation fully visible */
-    transform: translate(0);
-    /* how it looks now */ } }
+    0% {
+        opacity: 0; /*animation invisible*/
+        transform: translateX(10rem); /*start 100px at the right*/
+    }    
+    
+    80% {
+        transform: translateX(-1rem); /*animation goes 10px to left side*/
+    }
+
+    100% {
+        opacity: 1; /*animation fully visible */
+        transform: translate(0); /* how it looks now */
+    }    
+}
 
 @keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    /*animation invisible*/
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    /*animation fully visible */
-    transform: translate(0);
-    /* how it looks now */ } }
+    0% {
+        opacity: 0; /*animation invisible*/
+        transform: translateY(3rem); 
+    }      
+    
+    100% {
+        opacity: 1; /*animation fully visible */
+        transform: translate(0); /* how it looks now */
+    }    
+}
+
 
 /*--pseudo-classes are a special state of a selector*/
 /*-- btn:link - state of the button selector, when user hover elelen or checkbox is selected*/
@@ -156,31 +184,33 @@ ease-out - starts slow, faster at the end*/
 /*--transform: all; -- all the properties anable to animate, .2s - animation time*/
 .btn:link,
 .btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  /*if we want get some blocks around*/
-  border-radius: 10rem;
-  transform: all .2s;
-  position: relative;
-  font-size: 1.6rem; }
+    text-transform: uppercase;
+    text-decoration: none; 
+    padding: 1.5rem 4rem;   
+    display: inline-block; /*if we want get some blocks around*/
+    border-radius: 10rem;
+    transform: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+}
 
 /*--box-shadow-- property, we can specify a lot of values. If we don't want't shaow in x direction we put 0.
  10px in y axes, third value is blur 20px, and finally color with opacity. */
+
 .btn:hover {
-  transform: translateY(-3px);
-  /*when hove moves up 3px from the button*/
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    transform: translateY(-3px); /*when hove moves up 3px from the button*/
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+}
 
 .btn:active {
-  transform: translateY(-1px);
-  /*when click moves up 1px from button*/
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+    transform: translateY(-1px); /*when click moves up 1px from button*/
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
 
 .btn--white {
-  background-color: #fff;
-  color: #777; }
+    background-color: $color-white;
+    color: $color-grey-dark;
+}
 
 /*-- In order arfer pseudo element to actully appear on the page we need top specify it's content property. 
 it doesn't matter what content is, it can even be emty, but we have to specify, otherwise it's not going to appear.*/
@@ -191,30 +221,33 @@ that it can find. In this case it can be header, to change we add realtive to bt
 /*-- z-index:-1; -- z-index defines the position of elements if the are one on top of another. -1 use because
 it is definitely behind the button*/
 .btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all .4s; }
+    content:"";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
 
 .btn--white::after {
-  background-color: #fff; }
+    background-color:$color-white;
+}
 
 /*--what we hover we want pseudo after*/
 /*-- transform:scale (1.5) increase the element double the size that it had before*/
 /*-- transform: scaleX(1.4) scaleY(1.6) -- changes button size in different axis.*/
 .btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-  /*a trick for fading out (set to invisible basiclly)*/ }
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; /*a trick for fading out (set to invisible basiclly)*/
+}
 
 /*--animation-fill-mode: backwords; automatically applay styles up to zero percent before the animation starts*/
+
 .btn--animated {
-  animation: moveInBottom .5s ease-out .75s;
-  /*.75s is 0.75 secon delay*/
-  animation-fill-mode: backwords; }
+    animation: moveInBottom .5s ease-out .75s;  /*.75s is 0.75 secon delay*/
+    animation-fill-mode: backwords;
+}
