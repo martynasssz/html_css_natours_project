@@ -5,9 +5,6 @@ $color-primary-dark: #28b485;
 $color-grey-dark:#777;
 $color-white: #fff;
 
-
-
-
 /* -- star is universal selector select each and every element on the page all applay the declarations */
 /* --boxsize by it self not inherit, bet setting box-sizing for every element on entire page to inherit, 
 it automatically inherit whatever we put of border-box;*/
@@ -56,8 +53,8 @@ codinates.  75vh (75% viewport hight). If we change viewport hight it will chang
     background-image: linear-gradient(
         to right bottom, 
         rgba($color-primary-light, 0.8),
-        rgba($color-primary-dark, 0.8)),
-        url("../img/hero.jpg.");
+        rgba($color-primary-dark, 0.8)), 
+        url("../img/hero.jpg");
     background-size: cover;
     background-position: top;
     position: relative;
