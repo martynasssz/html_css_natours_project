@@ -1,0 +1,40 @@
+/*-- fort-family is parient element in body and all other child elements inherit it*/
+/*-- padding: 30px -- white space arout the page */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; remove, because set html font size*/
+    line-height: 1.7;
+    color: $color-grey-dark; 
+    padding: 3rem; 
+}
+
+.heading-primary {
+    color:$color-white;
+    text-transform: uppercase;
+
+    backface-visibility: hidden; 
+    margin-bottom: 6rem;
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        
+        animation-name: moveInLeft;  /*name of animation*/
+        animation-duration: 1s;  /*time the animation should take*/
+        animation-timing-function: ease-out;
+        
+        /*animation-iteration-count: 3;*/ /*animation happens 3 time*/
+        /*animation-delay: 3s;*/ /*before animation starts to play will first wait 3 seconds */
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1s ease-out; /*all properties write in one line*/
+    }
+}

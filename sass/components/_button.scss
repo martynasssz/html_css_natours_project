@@ -1,0 +1,62 @@
+/*--pseudo-classes are a special state of a selector*/
+/*-- btn:link - state of the button selector, when user hover elelen or checkbox is selected*/
+/*--btn:visited - when use clicked on the button */
+/*--transform: all; -- all the properties anable to animate, .2s - animation time*/
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none; 
+        padding: 1.5rem 4rem;   
+        display: inline-block; /*if we want get some blocks around*/
+        border-radius: 10rem;
+        transform: all .2s;
+        position: relative;
+        font-size: 1.6rem;
+    }
+
+    /*--box-shadow-- property, we can specify a lot of values. If we don't want't shaow in x direction we put 0.
+    10px in y axes, third value is blur 20px, and finally color with opacity. */
+
+    &:hover {
+        transform: translateY(-3px); /*when hove moves up 3px from the button*/
+        box-shadow: 0 1rem 2rem rgba($color-black,.2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0; /*a trick for fading out (set to invisible basiclly)*/
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px); /*when click moves up 1px from button*/
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+        
+        &::after {
+            background-color:$color-white;
+        }
+    }
+
+    &::after {
+        content:"";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position:absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }  
+    
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;  /*.75s is 0.75 secon delay*/
+        animation-fill-mode: backwords;
+    }
+}

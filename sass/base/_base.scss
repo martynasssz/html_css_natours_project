@@ -1,0 +1,21 @@
+/* -- star is universal selector select each and every element on the page all applay the declarations */
+/* --boxsize by it self not inherit, bet setting box-sizing for every element on entire page to inherit, 
+it automatically inherit whatever we put of border-box;*/
+*,
+*::after,
+*::before {   
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/*the root font sizeset in html*/
+html {
+    font-size: 62.5%; /*1rem = 10px root font size, 10/16 = 62.5%;  16px default size*/
+}
+
+/* -- box sizing is to change the box model, so thant the borders and the paddings are no longer added 
+to total width or total height than we specify for a box*/
+body {
+    box-sizing: border-box;
+}

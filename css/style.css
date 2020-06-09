@@ -1,91 +1,3 @@
-/* -- star is universal selector select each and every element on the page all applay the declarations */
-/* --boxsize by it self not inherit, bet setting box-sizing for every element on entire page to inherit, 
-it automatically inherit whatever we put of border-box;*/
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
-
-/*the root font sizeset in html*/
-html {
-  font-size: 62.5%;
-  /*1rem = 10px root font size, 10/16 = 62.5%;  16px default size*/ }
-
-/*-- fort-family is parient element in body and all other child elements inherit it*/
-/*-- padding: 30px -- white space arout the page */
-/* -- box sizing is to change the box model, so thant the borders and the paddings are no longer added 
-to total width or total height than we specify for a box*/
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; remove, because set html font size*/
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-/*-- 95vh -- means, that every point the height of the box of his element should be 95% of the viewport height.
-If we put 100vh, element would be exactly the same height as the viewport (white space will in the end of page).*/
-/*-- background-size: cover -- means, that whateverthe width of the viewport, or the element,it'll always try to fit 
-the element inside pf the box.*/
-/*--background-position: top-- backgroud image top stays the same , when you changing page size, the same 
-we can with bottom* and center*/
-/* --linear-gradient(to right bottom,  -- gradient goes to from left to the right buttom conner*/
-/* -- clip-path:polygon(  -- we spacify a polygon in wihch the image, o element, will still be wisible; 
-x,y starts from top left conner and finishes at the bottom left conner. For every conner we should specify 
-codinates.  75vh (75% viewport hight). If we change viewport hight it will change dinamically */
-/* --position: relative  it is reference from which .logo-box, top and left will count */
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  .header__logo-box {
-    /*changend intead header__logo-box*/
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    /*center text inside the box*/ }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    /*name of animation*/
-    animation-duration: 1s;
-    /*time the animation should take*/
-    animation-timing-function: ease-out;
-    /*animation-iteration-count: 3;*/
-    /*animation happens 3 time*/
-    /*animation-delay: 3s;*/
-    /*before animation starts to play will first wait 3 seconds */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out;
-    /*all properties write in one line*/ }
-
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -126,6 +38,61 @@ codinates.  75vh (75% viewport hight). If we change viewport hight it will chang
     /*animation fully visible */
     transform: translate(0);
     /* how it looks now */ } }
+
+/* -- star is universal selector select each and every element on the page all applay the declarations */
+/* --boxsize by it self not inherit, bet setting box-sizing for every element on entire page to inherit, 
+it automatically inherit whatever we put of border-box;*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+/*the root font sizeset in html*/
+html {
+  font-size: 62.5%;
+  /*1rem = 10px root font size, 10/16 = 62.5%;  16px default size*/ }
+
+/*-- fort-family is parient element in body and all other child elements inherit it*/
+/*-- padding: 30px -- white space arout the page */
+/* -- box sizing is to change the box model, so thant the borders and the paddings are no longer added 
+to total width or total height than we specify for a box*/
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; remove, because set html font size*/
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    /*name of animation*/
+    animation-duration: 1s;
+    /*time the animation should take*/
+    animation-timing-function: ease-out;
+    /*animation-iteration-count: 3;*/
+    /*animation happens 3 time*/
+    /*animation-delay: 3s;*/
+    /*before animation starts to play will first wait 3 seconds */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+    /*all properties write in one line*/ }
 
 /*--pseudo-classes are a special state of a selector*/
 /*-- btn:link - state of the button selector, when user hover elelen or checkbox is selected*/
@@ -176,3 +143,25 @@ codinates.  75vh (75% viewport hight). If we change viewport hight it will chang
     animation: moveInBottom .5s ease-out .75s;
     /*.75s is 0.75 secon delay*/
     animation-fill-mode: backwords; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    /*changend intead header__logo-box*/
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /*center text inside the box*/ }
