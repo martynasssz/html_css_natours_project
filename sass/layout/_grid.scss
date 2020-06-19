@@ -1,7 +1,6 @@
 .row {
     max-width: $grid-width; //max with means if we have  enough available space then it will have the width that we specified.
     //but if there is not enough width it will simply fill 100 of the availale space that it has.
-    background-color: #eee; 
     margin: 0 auto; // for centering block elements in another block element
    
     &:not(:last-child) {   //select everything exect last child
@@ -11,8 +10,7 @@
     @include clearfix;
 
     [class^="col-"] { //!!!--Attribute selector. ^ select all class which start with col-   ----!!!
-       background-color: orangered;
-       float: left; //all column will be flot in the left
+        float: left; //all column will be flot in the left
 
         &:not(:last-child) {
             margin-right: $gutter-horizontal;

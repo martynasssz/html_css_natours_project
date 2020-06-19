@@ -38,3 +38,26 @@ body {
         animation: moveInRight 1s ease-out; /*all properties write in one line*/
     }
 }
+
+//  -webkit-background-clip: text; means backgound clips where is the text (text become green gradient) 
+//  color: transparent is addintinal then we use -webkit-background clip, to see a color of text
+//  transform: skewY(2deg) help text to change direction when we hover is. Besides need to write transition: all .2s;
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display:inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: .2rem;
+    transition: all .2s;
+
+    &:hover {
+        transform: skewY(2deg) skewX(15deg) scale(1.1); //Y vertial dirention X horizontal
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2); //shadow X,Y, blur, color with opacity
+    }
+
+
+
+}
