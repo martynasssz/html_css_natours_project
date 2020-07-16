@@ -1,0 +1,45 @@
+.card {
+    perspective: 150rem; //for niser card rotation
+    -moz-perspective: 150rem; // for mozila browser
+    position: relative;
+    height: 50rem;
+
+    &__side {
+        color: #fff;
+        font-size: 2rem;
+
+        height: 50rem;
+        transition: all .8s ease;
+        position: absolute; //for cards to one an another
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden; //hides back part of elelent for animation corection
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        
+        &--front {
+            background-color: $color-white;
+        }
+
+        &--back {            
+            transform: rotateY(180deg);
+         
+            &-1 {
+                background: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }  
+        }       
+    }  
+    
+    &:hover &__side--front { //only fron side rotates
+        transform: rotateY(180deg);
+    }
+
+    &:hover &__side--back { //only fron side rotates
+        transform: rotateY(0deg); //because it not rotates
+    }
+
+
+
+
+}
